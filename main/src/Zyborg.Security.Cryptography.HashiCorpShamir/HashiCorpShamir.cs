@@ -25,6 +25,7 @@ namespace Zyborg.Security.Cryptography
             if (threshold < 2)
                 throw new ArgumentOutOfRangeException(nameof(threshold),
                         "threshold must be at least 2");
+
             if (threshold > 255)
                 throw new ArgumentOutOfRangeException(nameof(threshold),
                         "threshold cannot exceed 255");

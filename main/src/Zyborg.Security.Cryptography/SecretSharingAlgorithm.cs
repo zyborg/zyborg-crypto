@@ -23,6 +23,9 @@ namespace Zyborg.Security.Cryptography
                     [typeof(LayeredAsymmetricSecretSharing).FullName] =
                         typeof(LayeredAsymmetricSecretSharing),
 
+                    ["BigIntShamir"] =
+                        Type.GetType("Zyborg.Security.Cryptography.BigIntShamirsSecretSharing,"
+                                + " Zyborg.Security.Cryptography.TrivialShamir", false),
                     ["BigIntShamirs"] =
                         Type.GetType("Zyborg.Security.Cryptography.BigIntShamirsSecretSharing,"
                                 + " Zyborg.Security.Cryptography.TrivialShamir", false),
@@ -33,6 +36,9 @@ namespace Zyborg.Security.Cryptography
                         Type.GetType("Zyborg.Security.Cryptography.BigIntShamirsSecretSharing,"
                                 + " Zyborg.Security.Cryptography.TrivialShamir", false),
 
+                    ["HashiCorpShamir"] =
+                        Type.GetType("Zyborg.Security.Cryptography.HashiCorpShamirsSecretSharing,"
+                                + " Zyborg.Security.Cryptography.HashiCorpShamir", false),
                     ["HashiCorpShamirs"] =
                         Type.GetType("Zyborg.Security.Cryptography.HashiCorpShamirsSecretSharing,"
                                 + " Zyborg.Security.Cryptography.HashiCorpShamir", false),
@@ -46,7 +52,7 @@ namespace Zyborg.Security.Cryptography
 
         public static SecretSharingAlgorithm Create()
         {
-            return Create(typeof(SecretSharingAlgorithm).FullName);
+            return Create("HashiCorpShamirs");
         }
 
         public static SecretSharingAlgorithm Create(string algName)

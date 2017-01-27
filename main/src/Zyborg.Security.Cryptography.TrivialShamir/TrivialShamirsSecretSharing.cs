@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Zyborg.Security.Cryptography
 {
-    public class TrivialShamirsSecretSharing : SecretSharingAlgorithm, IThresholdSecretSharingAlgorithm
+    public class TrivialShamirsSecretSharing : ThresholdSecretSharingAlgorithm
     {
         public const int prime = 257;
 
@@ -13,7 +13,7 @@ namespace Zyborg.Security.Cryptography
             return Split(secretClear, shareCount, shareCount);
         }
 
-        public byte[] Split(byte[] secretClear, int shareCount, int threshold)
+        public override byte[] Split(byte[] secretClear, int shareCount, int threshold)
         {
             if (secretClear.Length != sizeof(int))
                 throw new ArgumentOutOfRangeException("secretClear",

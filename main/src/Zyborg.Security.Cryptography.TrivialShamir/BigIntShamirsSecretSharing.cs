@@ -7,7 +7,7 @@ using Zyborg.Numerics;
 
 namespace Zyborg.Security.Cryptography
 {
-    public class BigIntShamirsSecretSharing : SecretSharingAlgorithm, IThresholdSecretSharingAlgorithm
+    public class BigIntShamirsSecretSharing : ThresholdSecretSharingAlgorithm
     {
         public const int INT_ARR_LEN = sizeof(int);
 
@@ -28,7 +28,7 @@ namespace Zyborg.Security.Cryptography
             return Split(secretClear, shareCount, shareCount);
         }
 
-        public byte[] Split(byte[] secretClear, int shareCount, int threshold)
+        public override byte[] Split(byte[] secretClear, int shareCount, int threshold)
         {
             // var primeArr = ComputeRandomePrime();
             // var prime = new BigInteger(primeArr);

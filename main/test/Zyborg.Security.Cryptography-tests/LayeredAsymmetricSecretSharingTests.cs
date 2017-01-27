@@ -26,7 +26,7 @@ namespace Zyborg.Security.Cryptography
 
             var ss2 = new LayeredAsymmetricSecretSharing();
             ss2.Shares = shares;
-            var clear = ss2.Join(crypt);
+            var clear = ss2.Combine(crypt);
 
             Assert.Equal(secret, clear);         
         }

@@ -197,7 +197,7 @@ Console.WriteLine($"Indexes2: {joinShares2.Count()} " + string.Join(",", joinSha
             var ss2 = new TrivialShamirsSecretSharing();
             ss2.Shares = shares.Take(threshold);
 
-            var clear = ss2.Join(crypt);
+            var clear = ss2.Combine(crypt);
             var value = BitConverter.ToInt32(clear, 0);
 
             Assert.Equal(secret, clear);

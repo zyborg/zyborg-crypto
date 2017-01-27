@@ -74,7 +74,7 @@ namespace Zyborg.Security.Cryptography
             return secretCrypt;
         }
 
-        public override byte[] Join(byte[] secretCrypt)
+        public override byte[] Combine(byte[] secretCrypt)
         {
             var shares = new List<Tuple<int, byte[], byte[]>>();
             foreach (var sh in Shares)

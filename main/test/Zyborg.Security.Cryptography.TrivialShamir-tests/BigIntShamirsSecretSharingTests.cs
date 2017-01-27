@@ -26,7 +26,7 @@ namespace Zyborg.Security.Cryptography
 
             var ss2 = ss1; //new ShamirsSecretSharing();
             ss2.Shares = shares.Take(threshold);
-            var clear = ss2.Join(crypt);
+            var clear = ss2.Combine(crypt);
 
             Assert.Equal(secret, clear);         
         }

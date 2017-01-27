@@ -64,7 +64,7 @@ namespace Zyborg.Security.Cryptography
 
         public abstract byte[] Split(byte[] secretClear, int shareCount);
 
-        public abstract byte[] Join(byte[] secretCrypt);
+        public abstract byte[] Combine(byte[] secretCrypt);
 
         #region -- IDisposable Support --
         

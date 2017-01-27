@@ -78,7 +78,7 @@ System.Console.WriteLine("X: " + x);
             return new byte[0];
         }
 
-        public override byte[] Join(byte[] secretCrypt)
+        public override byte[] Combine(byte[] secretCrypt)
         {
             var accum = BigInteger.Zero;
             var shares = new List<Tuple<int, BigInteger>>();

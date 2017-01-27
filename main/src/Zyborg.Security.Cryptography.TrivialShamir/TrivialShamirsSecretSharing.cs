@@ -25,7 +25,7 @@ namespace Zyborg.Security.Cryptography
             return new byte[0];
         }
 
-        public override byte[] Join(byte[] secretCrypt)
+        public override byte[] Combine(byte[] secretCrypt)
         {
             var secretInt = Join();
             return BitConverter.GetBytes(secretInt);

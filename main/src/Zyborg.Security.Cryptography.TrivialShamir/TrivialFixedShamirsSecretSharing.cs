@@ -132,7 +132,7 @@ Console.WriteLine($"COEF: {string.Join(",", coef)}");
             throw new NotImplementedException();
         }
 
-        public override byte[] Join(byte[] secretCrypt)
+        public override byte[] Combine(byte[] secretCrypt)
         {
             throw new NotImplementedException();
         }

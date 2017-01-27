@@ -1,28 +1,28 @@
 using System;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace Zyborg.Security.Cryptography
 {
-    public class HashiCorpShamirsSecretSharing : SecretSharingAlgorithm, IThresholdSecretSharingAlgorithm
+    public class HashiCorpShamirsSecretSharing : ThresholdSecretSharingAlgorithm
     {
-        // ShareOverhead is the byte size overhead of each share
-        // when using Split on a secret. This is caused by appending
-        // a one byte tag to the share.
-        public const int SharedOverhead = 1;
-
         public override byte[] Split(byte[] secretClear, int shareCount)
         {
-            throw new NotImplementedException();
+            return Split(secretClear, shareCount, shareCount);
         }
 
-        public byte[] Split(byte[] secretClear, int shareCount, int threshold)
+        public override byte[] Split(byte[] secretClear, int shareCount, int threshold)
         {
-            throw new NotImplementedException();
+            Shares = HashiCorpShamir.Split(secretClear, shareCount, threshold);
+
+            // All encoded data is contained within the encoded shares,
+            // so there is no transformed form of the secret to return
+            return new byte[0];
         }
 
-        public override byte[] Join(byte[] secretCrypt)
+        public override byte[] Combine(byte[] secretCrypt)
         {
-            throw new NotImplementedException();
+            return HashiCorpShamir.Combine(Shares.ToArray());
         }
     }
 }

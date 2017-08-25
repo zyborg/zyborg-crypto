@@ -6,7 +6,7 @@ namespace Zyborg.Security.Cryptography
 {
     public class BigIntShamirsSecretSharingTests
     {
-        [Theory]
+        [Theory(Skip = "Needs Revision")]
       //[InlineData(10, 1)]
         [InlineData(10, 2, 1)]
         // [InlineData(10, 5)]
